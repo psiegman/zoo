@@ -4,6 +4,8 @@
 
 An Axon / Event Sourcing / CQRS sample project.
 
+It allows for the management of a Zoo: Adding, Liking and Sleeping/Waking up of animals.
+
 ## Installation
 
 ### Requirements
