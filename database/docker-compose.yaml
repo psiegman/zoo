@@ -1,0 +1,21 @@
+version: '3.6'
+services:
+  mysql:
+    image: mariadb:10.4.11
+    container_name: paul-mysql
+    restart: always
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: hello123
+      MYSQL_DATABASE: zoo
+      MYSQL_USER: zoo
+      MYSQL_PASSWORD: zoo
+    command: --lower_case_table_names=1 --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+    ports:
+      - '4417:3306'
+
+volumes:
+  mysql-data:
+    name: paul-mysql
+
