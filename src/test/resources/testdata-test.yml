@@ -1,0 +1,13 @@
+!!nl.siegmann.zoo.dataloader.Zoo
+menagerie:
+  species:
+    ant:
+      emoji: "hi"
+      animals:
+        annie:
+          nrLikes: 17
+    bear:
+      emoji: 'asdf'
+      animals:
+        bob:
+          nrLikes: 3

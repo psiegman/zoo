@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Demo Zoo</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/webjars/vue/vue.js"></script>
+    <script src="/js/stomp.umd.min.js"></script>
+    <script src="/webjars/axios/dist/axios.js"></script>
+    <link href="/css/zoo.css" rel="stylesheet" type="text/css"/>
+</head>
+    
+<body>
+<div class="container-fluid" id="zoo">
+
+    <div class="alert alert-success">
+        <strong>Welcome to the Jungle</strong>
+    </div>
+
+    <div class="pens">
+        <div v-for="pen in pens" class="pen">
+            <span class="name">{{pen.species.name}}</span>
+            <span class="emoji" @click="createAnimal(pen.species)">{{pen.species.emoji}}</span>
+            <div class="pen-body">
+                <div v-for="animal in pen.animals" class="animal" :key="animal.id">
+                    <span class="name">{{animal.name}}</span>
+                    <span class="likes">
+                        <transition name="like-update" mode="out-in">
+                            <span class="likes-value" :key="animal.nrLikes">{{animal.nrLikes}}</span>
+                        </transition>
+                    </span>
+                    <span @click="likeAnimal(animal.id)" class="like-cta">💖</span>️
+                    <span v-if="animal.status == 'AWAKE'" @click="animalUpdateStatus(animal.id, 'asleep')"
+                          class="status-cta">☀️</span>
+                    <span v-if="animal.status == 'ASLEEP'" @click="animalUpdateStatus(animal.id, 'awake')"
+                          class="status-cta">💤️</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/zoo.js"></script>
+</body>
+</html>

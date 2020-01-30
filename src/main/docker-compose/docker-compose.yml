@@ -1,0 +1,16 @@
+version: '3'
+services:
+  zoo-01:
+    container_name: zoo-01
+    image: zoo:latest
+    ports:
+    - 8080:8080
+    volumes:
+    - /Users/paul/project/zoo/zoo/config/docker:/opt/conf:Z
+  zoo-02:
+    container_name: zoo-02
+    image: zoo:latest
+    ports:
+    - 8081:8080
+    volumes:
+    - /Users/paul/project/zoo/zoo/config/docker:/opt/conf:Z

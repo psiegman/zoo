@@ -1,0 +1,68 @@
+!!nl.siegmann.zoo.dataloader.Zoo
+menagerie:
+  species:
+    ant:
+      emoji: 🐜
+      animals:
+        annie:
+          nrLikes: 3
+        anton:
+    bear:
+      emoji: 🐻
+      animals:
+        barry:
+        betty:
+    elephant:
+      emoji: 🐘
+      animals:
+        eddie:
+          nrLikes: 6
+        ellie:
+    giraffe:
+      emoji: 🦒
+      animals:
+        ginny:
+        guillermo:
+    koala:
+      emoji: 🐨
+      animals:
+        katherine:
+        kevin:
+    lion:
+      emoji: 🦁
+      animals:
+        leo:
+          nrLikes: 12
+        lashonda:
+    monkey:
+      emoji: 🐵
+      animals:
+        mannie:
+        monique:
+    penguin:
+      emoji: 🐧
+      animals:
+        patricia:
+        pamela:
+        pedro:
+        pepe:
+    rhino:
+      emoji: 🦏
+      animals:
+        reinoud:
+        reggie:
+    tiger:
+      emoji: 🐯
+      animals:
+        tatiana:
+        tina:
+    unicorn:
+      emoji: 🦄
+      animals:
+        ursula:
+        umberto:
+    zebra:
+      emoji: 🦓
+      animals:
+        zadie:
+        zebediah:

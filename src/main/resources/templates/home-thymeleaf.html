@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Zoo Demo</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/zoo.css" rel="stylesheet" type="text/css"/>
+    <script src="/webjars/axios/dist/axios.js"></script>
+</head>
+    
+<body>
+<div class="container-fluid"><br/>
+
+    <div class="alert alert-success">
+        <strong>Welcome to the Jungle</strong>
+    </div>
+
+    <div class="pens">
+        <div th:each="pen : ${pens}" class="pen">
+            <h2 class="pen-header">
+                <span th:text="${pen.species.emoji}" class="emoji"/>
+                <span th:text="${pen.species.name}" class="name"/>
+            </h2>
+            <div class="pen-body">
+                <th:block th:each="animal: ${pen.animals}">
+                    <span th:text="${animal.name}" class="name"/>
+                    <span th:text="${animal.nrLikes}" class="likes"/>
+                    <span><a th:href="'javascript:likeAnimal(&quot;' + ${animalDTO.id} + '&quot;)'">❤</a></span>️
+                </th:block>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function likeAnimal(animalId) {
+        // @formatter:off
+        axios.post('/animal/' + animalId + "/like");
+        // @formatter:on
+    }
+</script>
+</body>
+</html>

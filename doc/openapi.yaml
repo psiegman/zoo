@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: Zoo
+  description: Axon Test Application
+  version: 0.0.1
+servers:
+  - url: 'http://localhost:8080'
+
+components:
+  schemas:
+    Animal:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '65b85bf2-c642-4e2d-aa8d-f01aa5c1782b'
+        name:
+          type: string
+          example: 'Leo'
+        nrLikes:
+          type: integer
+          example: 4
+        status:
+          type: string
+          enum: [ASLEEP, AWAKE]
+        speciesId:
+          type: string
+          title: The id of the species of this animal
+          example: "c2b5cae2-1bf6-450d-a99a-1534361feee1"
+    Species:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 'c2b5cae2-1bf6-450d-a99a-1534361feee1'
+        name:
+          type: string
+          example: 'Lion'
+        emoji:
+          type: string
+          example: "🦁"
+
+paths:
+  '/api/zoo':
+    get:
+      summary: Get complete Zoo data
+      responses:
+        '200':
+          description: Complete Zoo data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pens:
+                    type: array
+                    title: pens
+                    items:
+                      type: object
+                      properties:
+                        animals:
+                          type: array
+                          title: The animals in this pen
+                          items:
+                            $ref: '#/components/schemas/Animal'
+                        species:
+                          type: array
+                          title: the species in this pen
+                          items:
+                            $ref: '#/components/schemas/Species'
+
+  /api/animals/{animalIdOrName}/like:
+    post:
+      summary: 'Like an animal'
+      description: "'Likes' an animal if the animal is awake"
+      parameters:
+      - name: animalIdOrName
+        in: path
+        schema:
+          type: string
+          description: the id or name of the animal to like
+        required: true
+      responses:
+        '200':
+          description: Successful like
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Animal'
+  /api/animals/create:
+    put:
+      summary: Create an animal
+      requestBody:
+        description: The request object to create a new Animal
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: Annie
+                  speciesId:
+                    type: string
+                    example: "b107a8e3-4181-4a19-bb76-131a4f4f2e03"
+      responses:
+        '200':
+          description: Number of animals created
+          content:
+            application/json:
+              schema:
+                type: integer

@@ -1,0 +1,104 @@
+{
+  "info": {
+    "_postman_id": "b3e5455d-debf-4c21-8a1f-2a8cb9273728",
+    "name": "Zoo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "get all animals",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{base_url}}/api/animals",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "animals"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Like Dumbo",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{base_url}}/animals/Dumbo/like",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "animals",
+            "Dumbo",
+            "like"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Annie",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json;charset=UTF-8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": \"ff808081696348ae01692658b1bf0000\",\n    \"name\": \"Annie\",\n    \"species\": \"Aardvark\",\n    \"nrLikes\": 3\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/animals/create",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "animals",
+            "create"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create list",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n    {\n        \"name\": \"Dumbo\",\n        \"species\": \"elephant\",\n        \"nrLikes\": 0\n    },\n    {\n        \"name\": \"Pepe\",\n        \"species\": \"pig\",\n        \"nrLikes\": 0\n    },\n    {\n        \"name\": \"Annie\",\n        \"species\": \"Aardvark\",\n        \"nrLikes\": 3\n    }\n]"
+        },
+        "url": {
+          "raw": "{{base_url}}/animals/create_all",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "animals",
+            "create_all"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

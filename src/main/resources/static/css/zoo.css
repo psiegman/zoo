@@ -1,0 +1,88 @@
+body {
+    background-image: url("/images/leaf-background.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    font-family: Papyrus,fantasy;
+
+}
+
+.pens {
+    display: grid;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+    grid-template-columns: repeat(4, auto);
+    text-transform: capitalize;
+    margin-bottom: 2em;
+}
+
+.pen {
+    display: grid;
+    grid-template-columns: 5em auto;
+    grid-template-rows: 3em auto;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 1rem;
+    border: 1px solid saddlebrown;
+    border-radius: 5px;
+}
+
+.pen .emoji {
+    font-size: 4em;
+    grid-column: 1;
+    grid-row: 1 / 2;
+    text-align: center;
+    padding-right: 1rem;
+    margin-top: -0.5rem;
+    cursor: pointer;
+}
+
+.pen > .name {
+    font-size: 1.5em;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.pen .pen-body {
+    grid-column: 2;
+    grid-row: 2;
+    padding-left: 0.5em;
+    display: grid;
+    /* grid-template-columns: auto 3em 1em 0 1em; */
+    /*grid-template-rows: 1em;*/
+    grid-column-gap: 0.5em;
+    grid-row-gap: 0.5em;
+}
+
+.animal {
+    display: grid;
+    grid-template-columns: auto 3em 2em 2em 0 1em;
+}
+
+.animal .name {
+    text-align: left;
+}
+
+.pen-body .name {
+    grid-column: 1;
+}
+
+.pen-body .likes {
+    text-align: right;
+}
+
+.pen-body .like-cta {
+    cursor: pointer;
+    text-align: center;
+}
+
+.pen-body .status-cta {
+    cursor: pointer;
+}
+
+/*.like-update-enter-active, .like-update-leave-active {*/
+    /*transition: opacity .1s ease;*/
+/*}*/
+
+/*.like-update-enter, .like-update-leave-to {*/
+    /*opacity: 0;*/
+/*}*/
